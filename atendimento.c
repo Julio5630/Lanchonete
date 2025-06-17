@@ -5,7 +5,41 @@
 #define SENHA_AD 1234
 #define LOGIN_AD "admin" // Constantes de string precisam de aspas
 
+typedef struct {
+    int id;
+    char nome[50];
+    float preco;
+} ItemCardapio;
+
+ItemCardapio cardapio[10];
+int totalItensCardapio = 0;
+
+
+void inicializarCardapio() {
+    // Inicializa alguns itens no cardápio
+    cardapio[0] = (ItemCardapio){1, "Hambúrguer Clássico", 25.00};
+    cardapio[1] = (ItemCardapio){2, "Batata Frita Grande", 12.50};
+    cardapio[2] = (ItemCardapio){3, "Refrigerante Lata", 7.00};
+    cardapio[3] = (ItemCardapio){4, "Milkshake Chocolate", 18.00};
+    cardapio[4] = (ItemCardapio){5, "Sanduíche Natural", 20.00};
+    totalItensCardapio = 5;
+}
+
+void exibirCardapio() {
+    printf("\n====================================================\n");
+    printf("|                 CARDAPIO LANCHONETE                |\n");
+    printf("====================================================\n");
+    printf("| ID | NOME DO ITEM                 | PRECO (R$)   |\n");
+    printf("----------------------------------------------------\n");
+    for (int i = 0; i < totalItensCardapio; i++) {
+        printf("| %-2d | %-28s | %-12.2f |\n", cardapio[i].id, cardapio[i].nome, cardapio[i].preco);
+    }
+    printf("====================================================\n");
+}
+
+
 int main() {
+    inicializarCardapio();
     // Variaveis Locais
     char login[20];
     int senha;
@@ -16,10 +50,10 @@ int main() {
 
     // Tela de Login
     printf("====================================================\n");
-    printf("|           CASA DA SORTE LTDA                     |\n");
-    printf("|         SISTEMA ATENDIMENTO E VENDAS             |\n");
+    printf("|                 LANCHONETE MEU                   |\n");
+    printf("|               GRELHADO FAVORITO                  |\n");
     printf("====================================================\n");
-    printf("\nLogin de acesso: ");
+    printf("\nLogin de acesso: ");+
     scanf("%s", login);
     printf("Senha: ");
     scanf("%d", &senha);
@@ -30,7 +64,7 @@ int main() {
 
         // Loop do Menu Principal
         while (opcaoMenu != 0) {
-            printf("\n====================================================\n");
+            printf("\n====================================================  \n");
             printf("|                 MENU PRINCIPAL                   |\n");
             printf("====================================================\n");
             printf("| 1 - Atendimento ao Cliente                       |\n");
@@ -59,7 +93,7 @@ int main() {
 
                         switch (opcaoAtendimento) {
                             case 1:
-                                printf("\nOpcao 1: Pagamento de Boletos\n");
+                                exibirCardapio();
                                 break;
                             case 2:
                                 printf("\nOpcao 2: Historico de Atendimento\n");
