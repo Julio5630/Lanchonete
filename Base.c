@@ -267,7 +267,7 @@ int main() {
                     printf("\nOpcao invalida. Tente novamente.\n");
                     printf("\nPressione ENTER para continuar...");
                     getchar(); // Consumir o newline pendente
-                    getchar(); // Esperar pelo ENTER
+                    getchar(); // Esperar pelo ENTER 
                     break;
             }
         }
