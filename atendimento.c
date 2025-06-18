@@ -1,20 +1,20 @@
-#include <stdio.h>   // Para printf, scanf
-#include <string.h>  // Necessário para usar strcmp, strcpy
-#include <stdlib.h>  // Para system("cls") ou system("clear")
+#include <stdio.h> 
+#include <string.h>  
+#include <stdlib.h>  
 
 // Definição de constantes
 #define SENHA_AD 1234
-#define LOGIN_AD "admin" // Constantes de string precisam de aspas
+#define LOGIN_AD "admin" 
 
 // Número máximo de itens no cardápio e de registros de vendas
-#define MAX_ITENS_CARDAPIO 50 // Capacidade aumentada para mais itens
-#define MAX_VENDAS 500        // Capacidade aumentada para mais vendas
-#define MAX_ITENS_PEDIDO 20   // Capacidade máxima de itens em um único pedido
+#define MAX_ITENS_CARDAPIO 50 
+#define MAX_VENDAS 500       
+#define MAX_ITENS_PEDIDO 20   
 
 // Estrutura para um item do cardápio
 typedef struct {
     int id;
-    char nome[100]; // Tamanho aumentado para descrições mais longas
+    char nome[100]; 
     float preco;
 } ItemCardapio;
 
@@ -22,7 +22,7 @@ typedef struct {
 typedef struct {
     int idVenda;
     int idItemVendido;
-    char nomeItem[100]; // Tamanho aumentado
+    char nomeItem[100]; 
     int quantidade;
     float precoUnitario;
     float totalVenda;
@@ -43,7 +43,7 @@ int totalItensCardapio = 0;
 
 RegistroVenda vendas[MAX_VENDAS];
 int totalVendas = 0;
-int proximoIdVenda = 1; // Inicia os IDs de venda a partir de 1
+int proximoIdVenda = 1; 
 
 // Função para limpar a tela do console
 void limparTela() {
