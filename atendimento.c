@@ -75,7 +75,7 @@ void inicializarCardapio() {
     cardapio[totalItensCardapio++] = (ItemCardapio){13, "Refrigerante Lata - Guaraná Antarctica                           ", 7.00};
     cardapio[totalItensCardapio++] = (ItemCardapio){14, "Refrigerante Lata - Fanta Laranja                                 ", 7.00};
     cardapio[totalItensCardapio++] = (ItemCardapio){15, "Suco Natural Laranja (300ml)                                      ", 9.00};
-    cardapio[totalItensCardapio++] = (ItemCardapio){16, "Cantina da Serra (garrafa 500ml)                                  ", 4.00}; // Ajustei a descrição novamente para ser mais realista
+    cardapio[totalItensCardapio++] = (ItemCardapio){16, "Cantina da Serra (galao 5L)                                       ", 4.00}; // Ajustei a descrição novamente para ser mais realista
     cardapio[totalItensCardapio++] = (ItemCardapio){17, "Água Mineral (sem gás)                                          ", 3.50};
 }
 
