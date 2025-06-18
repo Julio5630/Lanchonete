@@ -44,10 +44,15 @@ void limparTela() {
 void inicializarCardapio() {
     // Inicializa alguns itens no cardápio
     cardapio[0] = (ItemCardapio){1, "Hambúrguer Clássico", 25.00};
-    cardapio[1] = (ItemCardapio){2, "Batata Frita Grande", 12.50};
-    cardapio[2] = (ItemCardapio){3, "Refrigerante Lata", 7.00};
-    cardapio[3] = (ItemCardapio){4, "Milkshake Chocolate", 18.00};
-    cardapio[4] = (ItemCardapio){5, "Sanduíche Natural", 20.00};
+    cardapio[1] = (ItemCardapio){2, "Hamburguer duplo", 30.00};
+    cardapio[2] = (ItemCardapio){3, "Hamburguer triplo", 35.00};
+    cardapio[3] = (ItemCardapio){4, "Batata Frita Grande", 12.50};
+    cardapio[4] = (ItemCardapio){5, "Refrigerante Lata", 7.00};
+    cardapio[5] = (ItemCardapio){6, "Milkshake Chocolate", 18.00};
+    cardapio[6] = (ItemCardapio){7, "Sanduíche Natural", 20.00};
+    
+
+
     totalItensCardapio = 5;
 }
 
