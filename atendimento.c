@@ -15,7 +15,7 @@ ItemCardapio cardapio[10];
 int totalItensCardapio = 0;
 
 void limparTela(){
-    printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+    printf("cls")
 }
 
 /*
@@ -101,7 +101,8 @@ int main() {
 
         // Loop do Menu Principal
         while (opcaoMenu != 0) {
-             printf("\n====================================================\n");
+            limparTela();
+            printf("\n====================================================\n");
             printf("|                   MENU PRINCIPAL                 |\n");
             printf("====================================================\n");
             printf("| 1 - Fazer Pedido (Atendimento ao Cliente)        |\n");
