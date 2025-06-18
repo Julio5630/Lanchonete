@@ -20,18 +20,30 @@ void limparTela(){
 
 
 void inicializarCardapio() {
-    // Inicializa alguns itens no cardápio
-    cardapio[0] = (ItemCardapio){1, "Hambúrguer Clássico", 25.00};
-    cardapio[1] = (ItemCardapio){2, "Batata Frita Grande", 12.50};
-    cardapio[2] = (ItemCardapio){3, "Refrigerante Lata", 7.00};
-    cardapio[3] = (ItemCardapio){4, "Milkshake Chocolate", 18.00};
-    cardapio[4] = (ItemCardapio){5, "Sanduíche Natural", 20.00};
-    totalItensCardapio = 5;
+    cardapio[0] = (ItemCardapio){1, "X-Safadao (Carne, queijo, bacon, molho              )", 25.00};
+    cardapio[1] = (ItemCardapio){2, "X-Laricao (Carne, queijo, alface, tomate            )", 12.50};
+    cardapio[2] = (ItemCardapio){3, "X-Treme Treme (Carne, queijo, barbecue              )", 7.00};
+    cardapio[3] = (ItemCardapio){4, "Pastel do Véi Preguiça (Massa, carne, queijo        )", 18.00};
+    cardapio[4] = (ItemCardapio){5, "Empadão do Soneca (Massa, frango, requeijão         )", 20.00};
+
+    cardapio[5] = (ItemCardapio){6, "X-Bomba Atomica (Duplo, queijo, bacon, alface       )", 30.00};
+    cardapio[6] = (ItemCardapio){7, "X-Termonuke (Picante, cheddar, cebola, picles       )", 28.00};
+    cardapio[7] = (ItemCardapio){8, "X-Ditador (Premium, queijo, bacon, cebola, maionese )", 27.50};
+    cardapio[8] = (ItemCardapio){9, "X-Revolucao (Vegano, queijo, rúcula, tomate, molho  )", 26.00};
+
+    cardapio[9] = (ItemCardapio){10, "Bomba de Chocolate (Brownie, ganache, chocolate    )", 15.00};
+    cardapio[10] = (ItemCardapio){11, "Torta Termonuclear (Chocolate, doce de leite,     )", 18.00};
+    cardapio[11] = (ItemCardapio){12, "Tortadela (Massa, brigadeiro, beijinho, granulados)", 17.00};
+
+    totalItensCardapio = 12;
 }
+
+
+
 
 void exibirCardapio() {
     printf("\n====================================================\n");
-    printf("|                 CARDAPIO LANCHONETE                |\n");
+    printf("|         CARDAPIO LANCHONETE KIM LANCHUN          |\n");
     printf("====================================================\n");
     printf("| ID | NOME DO ITEM                 | PRECO (R$)   |\n");
     printf("----------------------------------------------------\n");
@@ -94,10 +106,11 @@ int main() {
 
                         switch (opcaoAtendimento) {
                             case 1:
-                                exibirCardapio();
+                                printf("\nVoltando ao Menu Principal...\n");
                                 break;
                             case 2:
-                                printf("\nOpcao 2: Historico de Atendimento\n");
+                                limparTela();
+                                exibirCardapio();
                                 break;
                             case 0:
                                 printf("\nVoltando ao Menu Principal...\n");
