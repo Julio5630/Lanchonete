@@ -28,7 +28,7 @@ typedef struct {
     float totalVenda;
 } RegistroVenda;
 
-// Nova estrutura para os itens do pedido atual (para o comprovante)
+// estrutura para os itens do pedido atual (para o comprovante)
 typedef struct {
     int idItem;
     char nomeItem[100];
@@ -75,22 +75,22 @@ void inicializarCardapio() {
     cardapio[totalItensCardapio++] = (ItemCardapio){13, "Refrigerante Lata - Guaraná Antarctica                           ", 7.00};
     cardapio[totalItensCardapio++] = (ItemCardapio){14, "Refrigerante Lata - Fanta Laranja                                 ", 7.00};
     cardapio[totalItensCardapio++] = (ItemCardapio){15, "Suco Natural Laranja (300ml)                                      ", 9.00};
-    cardapio[totalItensCardapio++] = (ItemCardapio){16, "Cantina da Serra (galao 5L)                                       ", 4.00}; // Ajustei a descrição novamente para ser mais realista
+    cardapio[totalItensCardapio++] = (ItemCardapio){16, "Cantina da Serra (galao 5L)                                       ", 4.00}; 
     cardapio[totalItensCardapio++] = (ItemCardapio){17, "Água Mineral (sem gás)                                          ", 3.50};
 }
 
 // Exibe o cardápio
 void exibirCardapio() {
     printf("\n========================================================================================\n");
-    printf("|                       CARDAPIO LANCHONETE WESLEY SALGADAO                            |\n"); // Título centralizado
+    printf("|                       CARDAPIO LANCHONETE WESLEY SALGADAO                            |\n"); 
     printf("========================================================================================\n");
-    printf("| ID | NOME DO ITEM                                                       | PRECO (R$) |\n"); // Cabeçalho ajustado
-    printf("----------------------------------------------------------------------------------------\n"); // Linha de separação
+    printf("| ID | NOME DO ITEM                                                       | PRECO (R$) |\n"); 
+    printf("----------------------------------------------------------------------------------------\n"); 
     for (int i = 0; i < totalItensCardapio; i++) {
         // Usei um preenchimento maior (60) para acomodar seus espaços
         printf("| %-2d | %-60s | %-10.2f |\n", cardapio[i].id, cardapio[i].nome, cardapio[i].preco);
     }
-    printf("========================================================================================\n"); // Rodapé
+    printf("========================================================================================\n"); 
     printf("\nPressione ENTER para continuar...");
     getchar(); // Consome o caractere de nova linha deixado por um scanf anterior
     getchar(); // Espera o usuário pressionar ENTER
@@ -101,12 +101,12 @@ void gerarComprovante(ItemPedidoAtual pedidoAtual[], int numItensPedido, float s
     limparTela();
     
     printf("\n========================================================================================\n");
-    printf("|                                COMPROVANTE DE PEDIDO                                 |\n"); // Título centralizado
+    printf("|                                COMPROVANTE DE PEDIDO                                 |\n"); 
     printf("========================================================================================\n");
     printf("ID do Pedido: %d\n", proximoIdVenda); 
-    printf("----------------------------------------------------------------------------------------\n"); // Linha de separação
-    printf("| Qtd | Item                                                    | Preco Unit. | Subtotal |\n"); // Cabeçalho
-    printf("----------------------------------------------------------------------------------------\n"); // Linha de separação
+    printf("----------------------------------------------------------------------------------------\n"); 
+    printf("| Qtd | Item                                                    | Preco Unit. | Subtotal |\n"); 
+    printf("----------------------------------------------------------------------------------------\n");
 
     for (int i = 0; i < numItensPedido; i++) {
         // Usei um preenchimento maior (60) para acomodar os nomes com espaços
@@ -117,15 +117,15 @@ void gerarComprovante(ItemPedidoAtual pedidoAtual[], int numItensPedido, float s
                pedidoAtual[i].subtotalItem);
     }
 
-    printf("----------------------------------------------------------------------------------------\n"); // Linha de separação
+    printf("----------------------------------------------------------------------------------------\n"); 
     printf("Subtotal: R$ %.2f\n", subtotal);
     if (desconto > 0) {
         printf("Desconto aplicado: R$ %.2f\n", desconto);
     }
     printf("Total a Pagar: R$ %.2f\n", totalFinal);
-    printf("========================================================================================\n"); // Rodapé
-    printf("|                                Obrigado pela preferência!                            |\n"); // Centralizado
-    printf("========================================================================================\n"); // Rodapé
+    printf("========================================================================================\n");
+    printf("|                                Obrigado pela preferência!                            |\n"); 
+    printf("========================================================================================\n");
     printf("\nPressione ENTER para continuar...");
     getchar(); 
     getchar(); 
@@ -249,7 +249,7 @@ void registrarVendaComDesconto() {
     printf("Total a pagar: R$ %.2f\n", totalFinal);
     printf("\nPedido finalizado com sucesso!\n");
 
-    // Gera o comprovante somente se houver itens no pedido
+    // Gera o comprovante 
     if (numItensPedido > 0) {
         gerarComprovante(pedidoAtual, numItensPedido, subtotalPedido, valorDesconto, totalFinal);
     } else {
@@ -264,23 +264,23 @@ void registrarVendaComDesconto() {
 // Exibe todas as vendas registradas (para a área de gerenciamento)
 void visualizarVendas() {
     printf("\n========================================================================================\n");
-    printf("|                             HISTORICO DE VENDAS                                      |\n"); // Título centralizado
+    printf("|                             HISTORICO DE VENDAS                                      |\n"); 
     printf("========================================================================================\n");
 
     if (totalVendas == 0) {
         printf("\nNenhuma venda registrada ainda.\n");
-        printf("========================================================================================\n"); // Rodapé
+        printf("========================================================================================\n"); 
         printf("\nPressione ENTER para continuar...");
         getchar();
         getchar();
         return;
     }
 
-    printf("| ID Venda | ID Item | Item                                        | Qtd | Preco Unit. | Total Item |\n"); // Cabeçalho ajustado
-    printf("------------------------------------------------------------------------------------\n"); // Linha de separação
+    printf("| ID Venda | ID Item | Item                                        | Qtd | Preco Unit. | Total Item |\n"); 
+    printf("------------------------------------------------------------------------------------\n"); 
     float totalGeralVendas = 0.0;
     for (int i = 0; i < totalVendas; i++) {
-        // Usei um preenchimento maior (45) para acomodar nomes com espaços no histórico de vendas
+      
         printf("| %-9d| %-8d| %-45s | %-4d| %-12.2f| %-11.2f|\n",
                vendas[i].idVenda,
                vendas[i].idItemVendido,
@@ -290,9 +290,9 @@ void visualizarVendas() {
                vendas[i].totalVenda);
         totalGeralVendas += vendas[i].totalVenda;
     }
-    printf("----------------------------------------------------------------------------------------\n"); // Linha de separação
-    printf("|                                                  TOTAL GERAL: R$ %-10.2f |\n", totalGeralVendas); // Total geral alinhado
-    printf("========================================================================================\n"); // Rodapé
+    printf("----------------------------------------------------------------------------------------\n"); 
+    printf("|                                                  TOTAL GERAL: R$ %-10.2f |\n", totalGeralVendas);
+    printf("========================================================================================\n"); 
 
     printf("\nPressione ENTER para continuar...");
     getchar(); 
@@ -302,8 +302,8 @@ void visualizarVendas() {
 int main() {
     inicializarCardapio();
     printf("\nPressione ENTER para continuar...");
-    getchar(); // Consome o caractere de nova linha deixado por um scanf anterior
-    getchar(); // Espera o usuário pressionar ENTER
+    getchar(); 
+    getchar(); 
 
     // Variáveis Locais
     char login[20];
@@ -313,10 +313,10 @@ int main() {
     int opcaoVendas = -1;
 
     // Tela de Login
-    printf("\n===================================================================\n"); // Linha superior
-    printf("|                       LANCHONETE                                |\n"); // Centralizado
-    printf("|                     WESLEY SALGADAO                             |\n"); // Centralizado
-    printf("===================================================================\n"); // Linha inferior
+    printf("\n===================================================================\n");
+    printf("|                       LANCHONETE                                |\n");
+    printf("|                     WESLEY SALGADAO                             |\n"); 
+    printf("===================================================================\n"); 
     printf("\nLogin de acesso: ");
     scanf("%s", login);
 
@@ -333,13 +333,13 @@ int main() {
         // Loop do Menu Principal
         while (opcaoMenu != 0) {
             limparTela();
-            printf("\n===================================================================\n"); // Linha superior
-            printf("|                       MENU PRINCIPAL                            |\n"); // Centralizado
-            printf("===================================================================\n"); // Linha inferior
-            printf("| 1 - Fazer Pedido (Atendimento ao Cliente)                       |\n"); // Alinhado
-            printf("| 2 - Gerenciar Vendas                                            |\n"); // Alinhado
-            printf("| 0 - Sair do Sistema                                             |\n"); // Alinhado
-            printf("-------------------------------------------------------------------\n"); // Linha de separação
+            printf("\n===================================================================\n");
+            printf("|                       MENU PRINCIPAL                            |\n"); 
+            printf("===================================================================\n"); 
+            printf("| 1 - Fazer Pedido (Atendimento ao Cliente)                       |\n"); 
+            printf("| 2 - Gerenciar Vendas                                            |\n"); 
+            printf("| 0 - Sair do Sistema                                             |\n"); 
+            printf("-------------------------------------------------------------------\n");
             printf("Escolha uma opcao: ");
             if (scanf("%d", &opcaoMenu) != 1) { 
                 printf("\nOpcao invalida. Tente novamente.\n");
@@ -355,13 +355,13 @@ int main() {
                     opcaoAtendimento = -1;
                     while (opcaoAtendimento != 0) {
                         limparTela();
-                        printf("\n===================================================================\n"); // Linha superior
-                        printf("|                         FAZER PEDIDO                            |\n"); // Centralizado
-                        printf("===================================================================\n"); // Linha inferior
-                        printf("| 1 - Registrar Novo Pedido                                       |\n"); // Alinhado
-                        printf("| 2 - Exibir Cardápio                                             |\n"); // Alinhado
-                        printf("| 0 - Voltar ao Menu Principal                                    |\n"); // Alinhado
-                        printf("-------------------------------------------------------------------\n"); // Linha de separação
+                        printf("\n===================================================================\n"); 
+                        printf("|                         FAZER PEDIDO                            |\n"); 
+                        printf("===================================================================\n"); 
+                        printf("| 1 - Registrar Novo Pedido                                       |\n"); 
+                        printf("| 2 - Exibir Cardápio                                             |\n"); 
+                        printf("| 0 - Voltar ao Menu Principal                                    |\n"); 
+                        printf("-------------------------------------------------------------------\n"); 
                         printf("Escolha uma opcao: ");
                         if (scanf("%d", &opcaoAtendimento) != 1) { 
                             printf("\nOpcao invalida. Tente novamente.\n");
@@ -392,12 +392,12 @@ int main() {
                     opcaoVendas = -1;
                     while (opcaoVendas != 0) {
                         limparTela();
-                        printf("\n===================================================================\n"); // Linha superior
-                        printf("|                       GERENCIAR VENDAS                          |\n"); // Centralizado
-                        printf("===================================================================\n"); // Linha inferior
-                        printf("| 1 - Visualizar Todas as Vendas                                  |\n"); // Alinhado
-                        printf("| 0 - Voltar ao Menu Principal                                    |\n"); // Alinhado
-                        printf("-------------------------------------------------------------------\n"); // Linha de separação
+                        printf("\n===================================================================\n");
+                        printf("|                       GERENCIAR VENDAS                          |\n"); 
+                        printf("===================================================================\n");
+                        printf("| 1 - Visualizar Todas as Vendas                                  |\n"); 
+                        printf("| 0 - Voltar ao Menu Principal                                    |\n");
+                        printf("-------------------------------------------------------------------\n"); 
                         printf("Escolha uma opcao: ");
                         if (scanf("%d", &opcaoVendas) != 1) { 
                             printf("\nOpcao invalida. Tente novamente.\n");
@@ -429,10 +429,10 @@ int main() {
             }
         }
         printf("\n");
-        printf("===================================================================\n"); // Linha superior
-        printf("|          SESSAO FINALIZADA COM SUCESSO!                         |\n"); // Centralizado
-        printf("|        Obrigado por utilizar o sistema!!                        |\n"); // Centralizado
-        printf("===================================================================\n"); // Linha inferior
+        printf("===================================================================\n");
+        printf("|          SESSAO FINALIZADA COM SUCESSO!                         |\n");
+        printf("|        Obrigado por utilizar o sistema!!                        |\n");
+        printf("===================================================================\n"); 
 
     } else {
         printf("\nACESSO NEGADO - Credenciais invalidas.\n");
