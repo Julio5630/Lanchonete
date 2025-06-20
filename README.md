@@ -1,4 +1,3 @@
-Adicionado\! Aqui está a versão atualizada do README com o novo participante:
 
 -----
 
