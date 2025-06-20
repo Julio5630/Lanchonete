@@ -1,9 +1,21 @@
+Adicionado\! Aqui está a versão atualizada do README com o novo participante:
 
 -----
 
 # Sistema de Gerenciamento de Lanchonete
 
 Este é um sistema simples de gerenciamento de lanchonete desenvolvido em C. Ele permite registrar vendas, visualizar o cardápio e gerenciar o histórico de vendas, com um sistema de login para acesso.
+
+-----
+
+## Participantes do Projeto
+
+Conheça os desenvolvedores deste projeto:
+
+  * [**Erik Eike Silva**](https://github.com/ErikEikeSilva)
+  * [**Massacral**](https://github.com/Massacral)
+  * [**Luciana-Anascimento**](https://github.com/Luciana-Anascimento)
+  * [**Julio5630**](https://github.com/Julio5630)
 
 -----
 
@@ -28,7 +40,7 @@ Para compilar e executar este código, você precisará de um compilador C (como
 2.  **Compile o código**: Abra um terminal ou prompt de comando e execute o seguinte comando:
 
     ```bash
-    gcc lanchonete.c -o lanchonete
+    gcc lanchonete.c -o lanchonete.exe
     ```
 
 3.  **Execute o programa**: Após a compilação, você pode executar o programa com:
