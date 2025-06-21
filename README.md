@@ -46,7 +46,7 @@ Para compilar e executar este código, você precisará de um compilador C (como
 3.  **Execute o programa**: Após a compilação, você pode executar o programa com:
 
     ```bash
-    ./lanchonete
+    ./lanchonete.exe
     ```
 
 -----
