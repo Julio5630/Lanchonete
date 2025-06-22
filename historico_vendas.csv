@@ -1,2 +1,7 @@
 ID Venda;ID Item;Nome Item;Quantidade;Preco Unitario;Total Item
-1;12;Coca Cola                                                         ;41;7.00;287.00
+1;1;Pastel de Carne (Massa crocante com carne moída temperada);1;8.50;8.50
+2;3;Coxinha (Massa de batata com frango desfiado);45;6.00;270.00
+2;14;Refrigerante Lata - Fanta Laranja;5;7.00;35.00
+2;2;Pastel de Queijo (Queijo derretido na massa frita);6;7.50;45.00
+2;2;Pastel de Queijo (Queijo derretido na massa frita);5;7.50;37.50
+2;9;Batata Frita com Cheddar e Bacon;6;25.00;150.00
