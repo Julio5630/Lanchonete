@@ -20,13 +20,14 @@ Conheça os desenvolvedores deste projeto:
 
 ## Funcionalidades
 
-  * **Login de Acesso**: Sistema de autenticação para controle de acesso às funcionalidades.
+  * **Login de Acesso**: Sistema de autenticação para controle de acesso às funcionalidades administrativas.
   * **Cardápio Interativo**: Exibe uma lista predefinida de salgados, porções e bebidas.
   * **Registro de Pedidos**: Permite adicionar múltiplos itens a um pedido, com cálculo de subtotal e total.
   * **Desconto Automático**: Aplica um desconto de 5% em pedidos acima de R$50,00.
   * **Comprovante de Pedido**: Gera e exibe um comprovante detalhado para cada pedido finalizado.
-  * **Histórico de Vendas**: Permite visualizar todas as vendas registradas, incluindo o total geral.
-  * **Limpeza de Tela**: Função para manter a interface do console organizada.
+  * **Histórico de Vendas**: Permite visualizar todas as vendas registradas com seus detalhes e o total geral.
+  * **Exportar Vendas para CSV**: **Nova funcionalidade\!** Agora é possível salvar o histórico completo de vendas em um arquivo `.csv` para análise externa ou registro.
+  * **Limpeza de Tela**: Função para manter a interface do console organizada e limpa.
 
 -----
 
@@ -39,13 +40,13 @@ Para compilar e executar este código, você precisará de um compilador C (como
 2.  **Compile o código**: Abra um terminal ou prompt de comando e execute o seguinte comando:
 
     ```bash
-    gcc lanchonete.c -o lanchonete.exe
+    gcc lanchonete.c -o lanchonete
     ```
 
 3.  **Execute o programa**: Após a compilação, você pode executar o programa com:
 
     ```bash
-    ./lanchonete.exe
+    ./lanchonete
     ```
 
 -----
@@ -64,6 +65,7 @@ Ao iniciar o programa, você será solicitado a fazer login. Utilize as seguinte
 O código é dividido em funções para melhor organização:
 
   * **`limparTela()`**: Limpa o console para uma melhor experiência do usuário (compatível com Windows e sistemas Unix-like).
+  * **`salvarVendasCSV(const char *nomeArquivo)`**: **Nova função\!** Salva o histórico de vendas no arquivo CSV especificado.
   * **`inicializarCardapio()`**: Popula o cardápio com itens predefinidos ao iniciar o programa.
   * **`exibirCardapio()`**: Mostra a lista de todos os itens disponíveis no cardápio.
   * **`gerarComprovante()`**: Cria e exibe o comprovante de um pedido, incluindo detalhes dos itens, subtotal, desconto e total final.
@@ -109,7 +111,7 @@ O código utiliza as seguintes constantes e estruturas para organizar os dados:
 
 ## Observações
 
-  * O sistema armazena os dados em memória e não possui persistência. Ao fechar o programa, todos os dados (cardápio, vendas) são perdidos.
+  * O sistema agora permite **salvar o histórico de vendas em um arquivo CSV**, o que facilita a persistência dos dados e a análise externa.
   * A interface é baseada em console e interage com o usuário via entrada e saída padrão.
   * O tratamento de erro para entrada do usuário é básico, garantindo que números sejam inseridos onde esperado.
 
