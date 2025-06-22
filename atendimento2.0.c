@@ -54,6 +54,35 @@ void limparTela() {
 #endif
 }
 
+// Função para salvar os dados de vendas em um arquivo CSV
+void salvarVendasCSV(const char *nomeArquivo) {
+    FILE *arquivo = fopen(nomeArquivo, "w"); // "w" para escrever (cria ou sobrescreve o arquivo)
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo %s para escrita.\n", nomeArquivo);
+        return;
+    }
+
+    // Escreve o cabeçalho do CSV
+    fprintf(arquivo, "ID Venda;ID Item;Nome Item;Quantidade;Preco Unitario;Total Item\n");
+
+    // Escreve os dados de cada venda
+    for (int i = 0; i < totalVendas; i++) {
+        fprintf(arquivo, "%d;%d;%s;%d;%.2f;%.2f\n",
+                vendas[i].idVenda,
+                vendas[i].idItemVendido,
+                vendas[i].nomeItem,
+                vendas[i].quantidade,
+                vendas[i].precoUnitario,
+                vendas[i].totalVenda);
+    }
+
+    fclose(arquivo);
+    printf("\nHistorico de vendas salvo com sucesso em '%s'.\n", nomeArquivo);
+    printf("Pressione ENTER para continuar...");
+    getchar(); // Consome o \n pendente
+    getchar(); // Espera pelo ENTER
+}
+
 // Inicializa o cardápio com itens predefinidos
 void inicializarCardapio() {
     // Salgados Fritos
@@ -100,13 +129,13 @@ void exibirCardapio() {
 void gerarComprovante(ItemPedidoAtual pedidoAtual[], int numItensPedido, float subtotal, float desconto, float totalFinal) {
     limparTela();
     
-    printf("\n========================================================================================\n");
-    printf("|                                COMPROVANTE DE PEDIDO                                 |\n"); 
-    printf("========================================================================================\n");
+    printf("\n=====================================================================================================\n");
+    printf("|                                        COMPROVANTE DE PEDIDO                                      |\n"); 
+    printf("=====================================================================================================\n");
     printf("ID do Pedido: %d\n", proximoIdVenda); 
-    printf("----------------------------------------------------------------------------------------\n"); 
-    printf("| Qtd | Item                                                    | Preco Unit. | Subtotal |\n"); 
-    printf("----------------------------------------------------------------------------------------\n");
+    printf("-----------------------------------------------------------------------------------------------------\n"); 
+    printf("| Qtd | Item                                                               | Preco Unit. | Subtotal |\n"); 
+    printf("-----------------------------------------------------------------------------------------------------\n");
 
     for (int i = 0; i < numItensPedido; i++) {
         // Usei um preenchimento maior (60) para acomodar os nomes com espaços
@@ -117,15 +146,15 @@ void gerarComprovante(ItemPedidoAtual pedidoAtual[], int numItensPedido, float s
                pedidoAtual[i].subtotalItem);
     }
 
-    printf("----------------------------------------------------------------------------------------\n"); 
+    printf("-----------------------------------------------------------------------------------------------------\n"); 
     printf("Subtotal: R$ %.2f\n", subtotal);
     if (desconto > 0) {
         printf("Desconto aplicado: R$ %.2f\n", desconto);
     }
     printf("Total a Pagar: R$ %.2f\n", totalFinal);
-    printf("========================================================================================\n");
-    printf("|                                Obrigado pela preferência!                            |\n"); 
-    printf("========================================================================================\n");
+    printf("=====================================================================================================\n");
+    printf("|                                     Obrigado pela preferencia!                                    |\n"); 
+    printf("=====================================================================================================\n");
     printf("\nPressione ENTER para continuar...");
     getchar(); 
     getchar(); 
@@ -263,21 +292,21 @@ void registrarVendaComDesconto() {
 
 // Exibe todas as vendas registradas (para a área de gerenciamento)
 void visualizarVendas() {
-    printf("\n========================================================================================\n");
-    printf("|                             HISTORICO DE VENDAS                                      |\n"); 
-    printf("========================================================================================\n");
+    printf("\n============================================================================================================================\n");
+    printf("|                                                HISTORICO DE VENDAS                                                       |\n"); 
+    printf("============================================================================================================================\n");
 
     if (totalVendas == 0) {
         printf("\nNenhuma venda registrada ainda.\n");
-        printf("========================================================================================\n"); 
+        printf("============================================================================================================================\n"); 
         printf("\nPressione ENTER para continuar...");
         getchar();
         getchar();
         return;
     }
 
-    printf("| ID Venda | ID Item | Item                                        | Qtd | Preco Unit. | Total Item |\n"); 
-    printf("------------------------------------------------------------------------------------\n"); 
+    printf("| ID Venda | ID Item | Item                                                               | Qtd | Preco Unit. | Total Item |\n"); 
+    printf("----------------------------------------------------------------------------------------------------------------------------\n"); 
     float totalGeralVendas = 0.0;
     for (int i = 0; i < totalVendas; i++) {
       
@@ -290,9 +319,9 @@ void visualizarVendas() {
                vendas[i].totalVenda);
         totalGeralVendas += vendas[i].totalVenda;
     }
-    printf("----------------------------------------------------------------------------------------\n"); 
-    printf("|                                                  TOTAL GERAL: R$ %-10.2f |\n", totalGeralVendas);
-    printf("========================================================================================\n"); 
+    printf("----------------------------------------------------------------------------------------------------------------------------\n"); 
+    printf("|    TOTAL GERAL: R$ %-10.2f |\n", totalGeralVendas);
+    printf("============================================================================================================================\n"); 
 
     printf("\nPressione ENTER para continuar...");
     getchar(); 
@@ -359,7 +388,7 @@ int main() {
                         printf("|                         FAZER PEDIDO                            |\n"); 
                         printf("===================================================================\n"); 
                         printf("| 1 - Registrar Novo Pedido                                       |\n"); 
-                        printf("| 2 - Exibir Cardápio                                             |\n"); 
+                        printf("| 2 - Exibir Cardapio                                             |\n"); 
                         printf("| 0 - Voltar ao Menu Principal                                    |\n"); 
                         printf("-------------------------------------------------------------------\n"); 
                         printf("Escolha uma opcao: ");
@@ -396,10 +425,11 @@ int main() {
                         printf("|                       GERENCIAR VENDAS                          |\n"); 
                         printf("===================================================================\n");
                         printf("| 1 - Visualizar Todas as Vendas                                  |\n"); 
+                        printf("| 2 - Salvar Historico de Vendas em CSV                           |\n");
                         printf("| 0 - Voltar ao Menu Principal                                    |\n");
                         printf("-------------------------------------------------------------------\n"); 
                         printf("Escolha uma opcao: ");
-                        if (scanf("%d", &opcaoVendas) != 1) { 
+                        if (scanf("%d", &opcaoVendas) != 1 || opcaoVendas != 2) { 
                             printf("\nOpcao invalida. Tente novamente.\n");
                             while (getchar() != '\n');
                             opcaoVendas = -1;
@@ -409,8 +439,14 @@ int main() {
 
                         switch (opcaoVendas) {
                             case 1:
+                                limparTela();
                                 visualizarVendas();
                                 break;
+                            case 2:
+                                limparTela();
+                                salvarVendasCSV("historico_vendas.csv");;
+                                break;
+
                             case 0:
                                 printf("\nVoltando ao Menu Principal...\n");
                                 break;
