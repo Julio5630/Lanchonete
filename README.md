@@ -40,13 +40,13 @@ Para compilar e executar este código, você precisará de um compilador C (como
 2.  **Compile o código**: Abra um terminal ou prompt de comando e execute o seguinte comando:
 
     ```bash
-    gcc lanchonete.c -o lanchonete
+    gcc lanchonete.c -o lanchonete.exe
     ```
 
 3.  **Execute o programa**: Após a compilação, você pode executar o programa com:
 
     ```bash
-    ./lanchonete
+    ./lanchonete.exe
     ```
 
 -----
