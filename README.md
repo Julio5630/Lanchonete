@@ -153,6 +153,5 @@ clinica-habilitar/
 
 ## 🚦 Próximas Implementações
 - [ ] Módulo financeiro
-- [ ] Agendamento de aulas/práticas
 - [ ] Interface gráfica
 - [ ] Backup automático
