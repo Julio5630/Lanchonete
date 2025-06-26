@@ -2,7 +2,7 @@
 # 🚗 Sistema de Gerenciamento para Clínica Habilitar 🚦
 
 <div align="center">
-  <img src="https://placehold.co/800x300" alt="Banner mostrando um sistema de gestão de CNH com interface moderna, contendo elementos de trânsito e formulários digitais em tons de azul e verde" />
+  <img src="[https://placehold.co/800x300](https://www.google.com/url?sa=i&url=http%3A%2F%2Fciateatrosolidario.blogspot.com%2F2010%2F08%2Fmulher-no-volante-perigo-constante.html&psig=AOvVaw0Jcbxac-H6KmmVMVl-dMk4&ust=1751056305505000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPixuf32j44DFQAAAAAdAAAAABAE)" alt="Banner mostrando um sistema de gestão de CNH com interface moderna, contendo elementos de trânsito e formulários digitais em tons de azul e verde" />
   <br>
   
   ![GitHub last commit](https://img.shields.io/github/last-commit/usuario/clinica-habilitar?style=flat-square)
