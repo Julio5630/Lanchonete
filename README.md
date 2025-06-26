@@ -1,6 +1,4 @@
-Aqui está a versão atualizada do README.md, agora incluindo as informações do cabeçalho solicitadas, mantendo o layout visual anterior:
 
-```markdown
 # 🚗 Sistema de Gerenciamento para Clínica Habilitar 🚦
 
 <div align="center">
@@ -58,12 +56,56 @@ Um sistema completo para gestão de processos de habilitação veicular, desenvo
 ## ⚙️ Tecnologias Utilizadas
 
 ```mermaid
-graph LR
-    A[Linguagem C] --> B[Estruturas de Dados]
-    A --> C[Manipulação de Arquivos]
-    A --> D[Validação de CPF]
-    B --> E[Array de Structs]
-    C --> F[Armazenamento Persistente]
+flowchart TD
+    Start([Início])
+    Login[Inserir informações de login]
+    VerificaDados{Dados corretos?}
+    Erro[Dados inseridos<br>estão incorretos]
+    Menu[Menu inicial]
+    Encerrar[Encerrar o sistema]
+    End([Fim])
+
+    Start --> Login --> VerificaDados
+    VerificaDados -- Não --> Erro --> Login
+    VerificaDados -- Sim --> Menu
+    Menu --> Encerrar --> End
+
+    %% Opção 1
+    Menu --> |Opção 1| Proc[ Abertura de<br> Processos ]
+    Proc --> Nome[Solicitar Nome<br>Completo]
+    Nome --> CPF1[Solicitar CPF]
+    CPFValido1{CPF válido?}
+    CPF1 --> CPFValido1
+    CPFValido1 -- Não --> CPF1
+    CPFValido1 -- Sim --> Idade[Solicitar Idade]
+    IdadeValida{Idade ≥ 18?}
+    Idade --> IdadeValida
+    IdadeValida -- Não --> Idade
+    IdadeValida -- Sim --> Categoria[Selecionar categoria desejada]
+    Categoria --> A
+
+    %% Opção 2
+    Menu --> |Opção 2| Relatorio[Relatório de atendimentos]
+    Relatorio --> ListarRel[Listar Todos os Relatórios]
+    ListarRel --> A
+
+    %% Opção 3
+    Menu --> |Opção 3| Consulta[Consultar processos<br>por CPF]
+    Consulta --> CPF2[Solicitar CPF]
+    CPF2 --> Exibir1[Exibir Processo Solicitado]
+    Exibir1 --> A
+
+    %% Opção 4
+    Menu --> |Opção 4| Atualizar[Atualizar status do processo]
+    Atualizar --> CPF3[Solicitar CPF]
+    CPF3 --> Exibir2[Exibir Processo Solicitado]
+    Exibir2 --> NovoStatus[Solicitar o novo status<br>para o processo]
+    NovoStatus --> Salvar[Salvar atualização dos dados]
+    Salvar --> A
+
+    %% Ponto de retorno ao menu
+    A((A)) --> Menu
+
 ```
 
 ## 📦 Requisitos e Instalação
@@ -81,16 +123,16 @@ git clone https://github.com/usuario/clinica-habilitar.git
 cd clinica-habilitar
 
 # Compile o programa
-gcc -o sistema_habilitar sistema_habilitar.c
+gcc sistema_habilitar.c -o sistema_habilitar.exe
 
 # Execute
-./sistema_habilitar
+./sistema_habilitar.exe
 ```
 
 ## 🔐 Credenciais de Acesso
 ```plaintext
 Usuário: admin
-Senha: 1234 (Altere após a primeira execução!)
+Senha: 1234 
 ```
 
 ## 📚 Documentação Técnica
@@ -114,27 +156,3 @@ clinica-habilitar/
 - [ ] Agendamento de aulas/práticas
 - [ ] Interface gráfica
 - [ ] Backup automático
-
-## 🤝 Como Contribuir
-1. Faça um Fork do projeto
-2. Crie sua Branch (`git checkout -b feature/nova-funcionalidade`)
-3. Faça o Commit (`git commit -m 'Adicionei uma funcionalidade'`)
-4. Push para a Branch (`git push origin feature/nova-funcionalidade`)
-5. Abra um Pull Request
-
-## 📄 Licença
-Distribuído sob licença MIT. Veja `LICENSE` para mais informações.
-
-## ✉️ Contato
-Equipe de Desenvolvimento - contato@clinicahabilitar.com.br
-
-<div align="center">
-  <sub>Desenvolvido com ❤️ para facilitar o processo de habilitação veicular</sub>
-</div>
-```
-
-### Alterações Realizadas:
-1. Adicionei uma nova seção "📚 Informações do Projeto" logo após o cabeçalho, contendo todas as informações solicitadas.
-2. Mantive o layout visual e a formatação do README anterior, garantindo que a nova seção se integre harmoniosamente ao design.
-
-Agora, o README contém todas as informações relevantes, incluindo os dados do projeto e a equipe de desenvolvimento, mantendo um visual atraente e organizado. Se precisar de mais alguma modificação ou ajuste, é só avisar!
