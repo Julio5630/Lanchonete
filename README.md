@@ -1,118 +1,157 @@
 
------
+# 🚗 Sistema de Gerenciamento para Clínica Habilitar 🚦
 
-# Sistema de Gerenciamento de Lanchonete
+<div align="center">
+  <img src="https://placehold.co/800x300" alt="Banner mostrando um sistema de gestão de CNH com interface moderna, contendo elementos de trânsito e formulários digitais em tons de azul e verde" />
+  <br>
+  
+  ![GitHub last commit](https://img.shields.io/github/last-commit/usuario/clinica-habilitar?style=flat-square)
+  ![GitHub repo size](https://img.shields.io/github/repo-size/usuario/clinica-habilitar?color=success&style=flat-square)
+  ![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)
+</div>
 
-Este é um sistema simples de gerenciamento de lanchonete desenvolvido em C. Ele permite registrar vendas, visualizar o cardápio e gerenciar o histórico de vendas, com um sistema de login para acesso.
+## 📚 Informações do Projeto
 
------
+**SENAC DF – Centro de Educação Profissional Jó Rufino e Carlos Aguiar – Taguatinga**  
+**Curso:** Técnico em Desenvolvimento de Sistemas  
+**Turma:** 2025.08.53  
+**Unidade Curricular:** UC 4 – Analisar Programação Estruturada e Orientada a Objetos  
+**Professor Orientador:** Hudson Neves  
 
-## Participantes do Projeto
+**Aluno(a):** [Seu nome completo]  
+**Data:** [Data de entrega ou elaboração do trabalho]  
 
-Conheça os desenvolvedores deste projeto:
+## 👥 Equipe de Desenvolvimento
 
-  * [**Erik Eike Silva**](https://github.com/ErikEikeSilva)
-  * [**Massacral**](https://github.com/Massacral)
-  * [**Luciana-Anascimento**](https://github.com/Luciana-Anascimento)
-  * [**Julio5630**](https://github.com/Julio5630)
+* [**Erik Eike Silva**](https://github.com/ErikEikeSilva)
+* [**Massacral**](https://github.com/Massacral)
+* [**Luciana-Anascimento**](https://github.com/Luciana-Anascimento)
+* [**Julio5630**](https://github.com/Julio5630)
 
------
+## ✨ Visão Geral
 
-## Funcionalidades
+Um sistema completo para gestão de processos de habilitação veicular, desenvolvido em C com foco em:
 
-  * **Login de Acesso**: Sistema de autenticação para controle de acesso às funcionalidades administrativas.
-  * **Cardápio Interativo**: Exibe uma lista predefinida de salgados, porções e bebidas.
-  * **Registro de Pedidos**: Permite adicionar múltiplos itens a um pedido, com cálculo de subtotal e total.
-  * **Desconto Automático**: Aplica um desconto de 5% em pedidos acima de R$50,00.
-  * **Comprovante de Pedido**: Gera e exibe um comprovante detalhado para cada pedido finalizado.
-  * **Histórico de Vendas**: Permite visualizar todas as vendas registradas com seus detalhes e o total geral.
-  * **Exportar Vendas para CSV**: **Nova funcionalidade\!** Agora é possível salvar o histórico completo de vendas em um arquivo `.csv` para análise externa ou registro.
-  * **Limpeza de Tela**: Função para manter a interface do console organizada e limpa.
+- 👥 Controle de clientes
+- 📝 Gerenciamento de processos
+- 📊 Geração de relatórios
+- 🔒 Acesso seguro
 
------
+## 🛠️ Funcionalidades Principais
 
-## Como Compilar e Rodar
+| Módulo          | Descrição                                                                 | Status       |
+|-----------------|---------------------------------------------------------------------------|-------------|
+| 📋 Cadastro     | Registro completo de clientes com validação de dados                      | ✅ Completo  |
+| 🔍 Consulta     | Busca ágil por CPF com exibição detalhada                                 | ✅ Completo  |
+| 📈 Relatórios   | Listagem organizada de todos os processos                                 | ✅ Completo  |
+| 🔄 Atualização  | Modificação de status dos processos                                       | ✅ Completo  |
+| 💾 Persistência | Armazenamento em arquivo para manutenção dos dados                        | ✅ Completo  |
 
-Para compilar e executar este código, você precisará de um compilador C (como GCC).
+## 🖥️ Pré-visualização da Interface
 
-1.  **Salve o código**: Salve o código-fonte como `lanchonete.c` (ou outro nome de sua preferência).
+<div align="center">
+  <img src="https://placehold.co/600x400" alt="Captura de tela mostrando o menu principal do sistema com opções numeradas em formato tabela, simulando interface de terminal" />
+</div>
 
-2.  **Compile o código**: Abra um terminal ou prompt de comando e execute o seguinte comando:
+## ⚙️ Tecnologias Utilizadas
 
-    ```bash
-    gcc lanchonete.c -o lanchonete.exe
-    ```
+```mermaid
+flowchart TD
+    Start([Início])
+    Login[Inserir informações de login]
+    VerificaDados{Dados corretos?}
+    Erro[Dados inseridos<br>estão incorretos]
+    Menu[Menu inicial]
+    Encerrar[Encerrar o sistema]
+    End([Fim])
 
-3.  **Execute o programa**: Após a compilação, você pode executar o programa com:
+    Start --> Login --> VerificaDados
+    VerificaDados -- Não --> Erro --> Login
+    VerificaDados -- Sim --> Menu
+    Menu --> Encerrar --> End
 
-    ```bash
-    ./lanchonete.exe
-    ```
+    %% Opção 1
+    Menu --> |Opção 1| Proc[ Abertura de<br> Processos ]
+    Proc --> Nome[Solicitar Nome<br>Completo]
+    Nome --> CPF1[Solicitar CPF]
+    CPFValido1{CPF válido?}
+    CPF1 --> CPFValido1
+    CPFValido1 -- Não --> CPF1
+    CPFValido1 -- Sim --> Idade[Solicitar Idade]
+    IdadeValida{Idade ≥ 18?}
+    Idade --> IdadeValida
+    IdadeValida -- Não --> Idade
+    IdadeValida -- Sim --> Categoria[Selecionar categoria desejada]
+    Categoria --> A
 
------
+    %% Opção 2
+    Menu --> |Opção 2| Relatorio[Relatório de atendimentos]
+    Relatorio --> ListarRel[Listar Todos os Relatórios]
+    ListarRel --> A
 
-## Credenciais de Acesso
+    %% Opção 3
+    Menu --> |Opção 3| Consulta[Consultar processos<br>por CPF]
+    Consulta --> CPF2[Solicitar CPF]
+    CPF2 --> Exibir1[Exibir Processo Solicitado]
+    Exibir1 --> A
 
-Ao iniciar o programa, você será solicitado a fazer login. Utilize as seguintes credenciais:
+    %% Opção 4
+    Menu --> |Opção 4| Atualizar[Atualizar status do processo]
+    Atualizar --> CPF3[Solicitar CPF]
+    CPF3 --> Exibir2[Exibir Processo Solicitado]
+    Exibir2 --> NovoStatus[Solicitar o novo status<br>para o processo]
+    NovoStatus --> Salvar[Salvar atualização dos dados]
+    Salvar --> A
 
-  * **Login**: `admin`
-  * **Senha**: `1234`
+    %% Ponto de retorno ao menu
+    A((A)) --> Menu
 
------
+```
 
-## Estrutura do Código
+## 📦 Requisitos e Instalação
 
-O código é dividido em funções para melhor organização:
+### Pré-requisitos
+- GCC (compilador C)
+- Terminal Linux/Windows
 
-  * **`limparTela()`**: Limpa o console para uma melhor experiência do usuário (compatível com Windows e sistemas Unix-like).
-  * **`salvarVendasCSV(const char *nomeArquivo)`**: **Nova função\!** Salva o histórico de vendas no arquivo CSV especificado.
-  * **`inicializarCardapio()`**: Popula o cardápio com itens predefinidos ao iniciar o programa.
-  * **`exibirCardapio()`**: Mostra a lista de todos os itens disponíveis no cardápio.
-  * **`gerarComprovante()`**: Cria e exibe o comprovante de um pedido, incluindo detalhes dos itens, subtotal, desconto e total final.
-  * **`registrarVendaComDesconto()`**: Gerencia o processo de registro de um novo pedido, permitindo adicionar vários itens e aplicando desconto se o subtotal for superior ao valor mínimo.
-  * **`visualizarVendas()`**: Exibe um histórico detalhado de todas as vendas realizadas.
-  * **`main()`**: A função principal que controla o fluxo do programa, incluindo o login, o menu principal e a navegação entre as diferentes funcionalidades.
+### Passo a passo
+```bash
+# Clone o repositório
+git clone https://github.com/usuario/clinica-habilitar.git
 
------
+# Acesse o diretório
+cd clinica-habilitar
 
-## Constantes e Estruturas
+# Compile o programa
+gcc sistema_habilitar.c -o sistema_habilitar.exe
 
-O código utiliza as seguintes constantes e estruturas para organizar os dados:
+# Execute
+./sistema_habilitar.exe
+```
 
-### Constantes
+## 🔐 Credenciais de Acesso
+```plaintext
+Usuário: admin
+Senha: 1234 
+```
 
-  * `SENHA_AD`: Senha de administrador (`1234`).
-  * `LOGIN_AD`: Login de administrador (`"admin"`).
-  * `MAX_ITENS_CARDAPIO`: Número máximo de itens que o cardápio pode ter (`50`).
-  * `MAX_VENDAS`: Número máximo de registros de vendas que podem ser armazenados (`500`).
-  * `MAX_ITENS_PEDIDO`: Número máximo de itens que um único pedido pode conter (`20`).
+## 📚 Documentação Técnica
 
-### Estruturas
+### Estrutura do Projeto
+```
+clinica-habilitar/
+├── sistema_habilitar.c  # Código fonte principal
+├── clientes_cnh.txt     # Banco de dados de clientes
+└── README.md            # Documentação
+```
 
-  * **`ItemCardapio`**: Representa um item individual no cardápio.
-      * `id` (int): Identificador único do item.
-      * `nome` (char\[100]): Nome do item.
-      * `preco` (float): Preço unitário do item.
-  * **`RegistroVenda`**: Usada para registrar cada item vendido no histórico de vendas.
-      * `idVenda` (int): ID da venda à qual o item pertence.
-      * `idItemVendido` (int): ID do item que foi vendido.
-      * `nomeItem` (char\[100]): Nome do item vendido.
-      * `quantidade` (int): Quantidade vendida do item.
-      * `precoUnitario` (float): Preço unitário do item no momento da venda.
-      * `totalVenda` (float): Subtotal do item (quantidade \* preço unitário).
-  * **`ItemPedidoAtual`**: Utilizada temporariamente para armazenar os detalhes dos itens de um pedido atual para a geração do comprovante.
-      * `idItem` (int): ID do item.
-      * `nomeItem` (char\[100]): Nome do item.
-      * `quantidade` (int): Quantidade do item no pedido.
-      * `precoUnitario` (float): Preço unitário do item.
-      * `subtotalItem` (float): Subtotal do item (quantidade \* preço unitário).
+### Validações Implementadas
+- ✔️ CPF (formato e dígitos)
+- ✔️ Idade mínima (18 anos)
+- ✔️ Categorias de CNH válidas
+- ✔️ Tipos de serviço permitidos
 
------
-
-## Observações
-
-  * O sistema agora permite **salvar o histórico de vendas em um arquivo CSV**, o que facilita a persistência dos dados e a análise externa.
-  * A interface é baseada em console e interage com o usuário via entrada e saída padrão.
-  * O tratamento de erro para entrada do usuário é básico, garantindo que números sejam inseridos onde esperado.
-
------
+## 🚦 Próximas Implementações
+- [ ] Módulo financeiro
+- [ ] Interface gráfica
+- [ ] Backup automático
